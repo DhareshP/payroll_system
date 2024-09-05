@@ -1,47 +1,53 @@
-This project is focused on the OOPS concept of Java.
+Employee Payroll System
 
-Employee Payroll System:
-A Payroll system is a method for managing and processing employee salaries. Payroll systems help businesses save time and money by automating tasks by calculating
-salaries and distributing payments.
+This is a simple Java-based Payroll System that manages both full-time and part-time employees. The system allows adding, removing, and displaying employee details, including their salaries, using object-oriented principles. It is built using core Java concepts such as inheritance, abstraction, and polymorphism.
 
-structure of the main file i.e Main.java:
+Features
+Abstract Employee Class: Defines the common properties and methods for all types of employees.
+Full-Time Employee: Implements a salary calculation based on a fixed monthly salary.
+Part-Time Employee: Implements a salary calculation based on hours worked and hourly rate.
+Payroll System: Manages the list of employees, including adding, removing, and displaying employee details.
+Classes and Structure
+1. Employee Class (Abstract)
+This is an abstract base class that holds common attributes and methods for all employees.
 
-```mermaid
+Attributes:
+id: Unique identifier for the employee.
+name: Name of the employee.
+Methods:
+getName(): Returns the employee’s name.
+getId(): Returns the employee’s ID.
+calculateSalary(): Abstract method that calculates the salary for the employee.
+toString(): Overridden method to display employee details including salary.
+2. FullTimeEmployee Class (Concrete)
+This class extends the Employee class and implements the salary calculation based on a fixed monthly salary.
 
-```mermaid
-flowchart TD
-    A[Employee (Abstract Class)] --> B[FullTimeEmployee]
-    A[Employee (Abstract Class)] --> C[PartTimeEmployee]
-    
-    B[FullTimeEmployee] --> D[monthlySalary: double]
-    C[PartTimeEmployee] --> E[hoursWorked: int]
-    C[PartTimeEmployee] --> F[hourlyRate: double]
-    
-    A --> G[id: int]
-    A --> H[name: String]
-    A --> I[calculateSalary(): abstract double]
-    
-    B --> J[calculateSalary(): double]
-    C --> K[calculateSalary(): double]
+Attributes:
 
-    L[PayrollSystem] --> M[employeeList: ArrayList<Employee>]
-    L[PayrollSystem] --> N[addEmployee(Employee employee)]
-    L[PayrollSystem] --> O[removeEmployee(int id)]
-    L[PayrollSystem] --> P[displayEmployees()]
+monthlySalary: Salary for a full-time employee.
+Methods:
 
-    P --> Q[Employee Details]
+calculateSalary(): Returns the fixed monthly salary for the employee.
+3. PartTimeEmployee Class (Concrete)
+This class also extends the Employee class and calculates the salary based on the hours worked and the hourly rate.
 
-    subgraph "Main Class"
-        R[PayrollSystem payrollSystem = new PayrollSystem()]
-        R --> S[addEmployee(emp1)]
-        R --> T[addEmployee(emp2)]
-        R --> U[displayEmployees()]
-        R --> V[removeEmployee(2)]
-        R --> W[displayEmployees()]
-    end
+Attributes:
 
-```
+hoursWorked: Number of hours worked by the part-time employee.
+hourlyRate: Rate per hour for the part-time employee.
+Methods:
 
-```
+calculateSalary(): Returns the salary based on the hours worked and hourly rate.
+4. PayrollSystem Class
+This class manages the employee list, providing functionality to add, remove, and display employee details.
 
+Attributes:
 
+employeeList: An ArrayList that stores employees (both full-time and part-time).
+Methods:
+
+addEmployee(Employee employee): Adds an employee to the list.
+removeEmployee(int id): Removes an employee by their ID.
+displayEmployees(): Displays all the employees in the system, including their salary and details.
+5. Main Class
+The Main class is responsible for initializing the payroll system, adding employees, removing employees, and displaying employee details.
