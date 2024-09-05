@@ -51,3 +51,16 @@ removeEmployee(int id): Removes an employee by their ID.
 displayEmployees(): Displays all the employees in the system, including their salary and details.
 5. Main Class
 The Main class is responsible for initializing the payroll system, adding employees, removing employees, and displaying employee details.
+
+How the System Works
+Adding Employees: Both full-time and part-time employees are added to the payroll system using the addEmployee() method. The system stores their details, including salary information.
+Removing Employees: The removeEmployee() method allows removing an employee from the system using their unique ID.
+Displaying Employees: The displayEmployees() method prints the employee's name, ID, and calculated salary using the overridden toString() method of the Employee class.
+
+How to Run
+Compile and run the Main class.
+The system will:
+Add two employees (full-time and part-time).
+Display initial employee details.
+Remove an employee.
+Display the remaining employees.
